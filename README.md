@@ -4,8 +4,9 @@
 
 ```bash
 sudo apt update && sudo apt upgrade
-sudo apt install gparted neofetch cmatrix htop python3-venv python3-pip gnome-tweaks gnome-shell-extensions git screen mc ssh fonts-noto gdebi curl
+sudo apt install gparted neofetch cmatrix htop python3-venv python3-pip gnome-tweaks gnome-shell-extensions git screen mc ssh fonts-noto gdebi curl libreoffice-calc
 ```
+
 ## Install Themes
 
 ```bash
