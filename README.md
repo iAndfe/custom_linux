@@ -1,4 +1,4 @@
-# Custom Install Notes
+# Personal Install Notes
 
 ## Install Repos
 
