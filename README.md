@@ -5,7 +5,6 @@ sudo apt install gparted neofetch cmatrix htop python3-venv python3-pip gnome-tw
 
 git clone https://github.com/vinceliuice/Fluent-icon-theme
 cd Fluent-icon-theme
-ls
 ./install.sh
 cd ..
 rm -rf Fluent-icon-theme
@@ -13,7 +12,6 @@ rm -rf Fluent-icon-theme
 
 git clone https://github.com/vinceliuice/Fluent-gtk-theme
 cd Fluent-gtk-theme
-ls
 ./install.sh
 cd ..
 rm -rf Fluent-gtk-theme
