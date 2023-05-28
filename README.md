@@ -1,4 +1,4 @@
-# Personal Install Notes
+## Personal Install Notes
 
 ```bash
 chmod +x install.sh
