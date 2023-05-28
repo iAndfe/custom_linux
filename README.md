@@ -23,6 +23,13 @@ cd ..
 rm -rf Fluent-gtk-theme
 ```
 
+## Remove Ubuntu Pro message
+
+```bash
+sudo mv /etc/apt/apt.conf.d/20apt-esm-hook.conf /etc/apt/apt.conf.d/20apt-esm-hook.conf.bak
+sudo touch /etc/apt/apt.conf.d/20apt-esm-hook.conf
+```
+
 ## Useful links
 
 https://www.google.com/chrome/
