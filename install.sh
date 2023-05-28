@@ -4,6 +4,7 @@
 sudo apt update && sudo apt upgrade
 sudo apt install gparted neofetch cmatrix htop python3-venv python3-pip gnome-tweaks gnome-shell-extensions git screen mc ssh fonts-noto gdebi curl libreoffice-calc libreoffice-gtk3 libreoffice-style-breeze fonts-dejavu
 
+
 # Clone Fluent-icon-theme
 git clone https://github.com/vinceliuice/Fluent-icon-theme
 cd Fluent-icon-theme
@@ -30,6 +31,7 @@ read
 cd ..
 rm -rf Fluent-gtk-theme
 
+
 # Set the theme
 gsettings set org.gnome.desktop.interface gtk-theme "Fluent-Dark-compact"
 
@@ -47,6 +49,17 @@ gsettings set org.gnome.desktop.interface monospace-font-name 'Noto Mono Regular
 
 # Set the legacy window title fonts
 gsettings set org.gnome.desktop.wm.preferences titlebar-font 'Noto Sans Bold 11'
+
+
+# Set Night Light to follow a manual schedule
+gsettings set org.gnome.settings-daemon.plugins.color night-light-schedule-automatic false
+
+# Set Night Light to turn on at 20:00 (8 PM)
+gsettings set org.gnome.settings-daemon.plugins.color night-light-schedule-from 20.0
+
+# Set Night Light to turn off at 6:00 (6 AM)
+gsettings set org.gnome.settings-daemon.plugins.color night-light-schedule-to 6.0
+
 
 # Remove Ubuntu Pro message
 sudo mv /etc/apt/apt.conf.d/20apt-esm-hook.conf /etc/apt/apt.conf.d/20apt-esm-hook.conf.bak
