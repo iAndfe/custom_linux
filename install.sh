@@ -61,8 +61,4 @@ gsettings set org.gnome.settings-daemon.plugins.color night-light-schedule-from 
 gsettings set org.gnome.settings-daemon.plugins.color night-light-schedule-to 6.0
 
 
-# Remove Ubuntu Pro message
-sudo mv /etc/apt/apt.conf.d/20apt-esm-hook.conf /etc/apt/apt.conf.d/20apt-esm-hook.conf.bak
-sudo touch /etc/apt/apt.conf.d/20apt-esm-hook.conf
-
 echo "Install Complete!"
