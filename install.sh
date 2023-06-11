@@ -16,24 +16,7 @@ read
 # If the user presses enter, the script continues
 ./install.sh
 cd ..
-rm -rf Fluent-icon-theme
-
-# Clone Fluent-gtk-theme
-git clone https://github.com/vinceliuice/Fluent-gtk-theme
-cd Fluent-gtk-theme
-
-# Prompt the user to check the code
-echo "Please check the code in the Fluent-gtk-theme directory for any potential issues. Press enter to continue when ready."
-read
-
-# If the user presses enter, the script continues
-./install.sh
-cd ..
 rm -rf Fluent-gtk-theme
-
-
-# Set the theme
-gsettings set org.gnome.desktop.interface gtk-theme "Fluent-Dark-compact"
 
 # Set the icon pack
 gsettings set org.gnome.desktop.interface icon-theme 'Fluent-dark'
