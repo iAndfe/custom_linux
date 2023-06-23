@@ -14,7 +14,7 @@ sudo apt install -y gparted neofetch cmatrix htop screen mc ssh gdebi curl nano 
 echo "System Utilities and Tools installed."
 
 echo "------ Programming and Development Tools ------"
-sudo apt install -y python3-venv python3-pip git
+sudo apt install -y python3-venv python3-pip git postman
 echo "Programming and Development Tools installed."
 
 echo "------ GNOME Desktop and Extensions ------"
@@ -84,7 +84,7 @@ curl https://packages.cloud.google.com/apt/doc/apt-key.gpg | gpg --dearmor | sud
 sudo apt-get update && sudo apt-get install -y google-cloud-sdk
 echo "Google Cloud CLI installed."
 
-echo "------ Installing Firebase CLI ------"
+echo "------ Installing Node JS and Firebase CLI ------"
 curl -sL https://deb.nodesource.com/setup_lts.x | sudo -E bash -
 sudo apt-get install -y nodejs
 sudo npm install -g firebase-tools
