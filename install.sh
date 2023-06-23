@@ -25,17 +25,13 @@ echo "------ Fonts ------"
 sudo apt install -y fonts-noto fonts-dejavu
 echo "Fonts installed."
 
-echo "------ Office and Productivity ------"
+echo "------ LibreOffice ------"
 sudo apt install -y libreoffice-calc libreoffice-gtk3 libreoffice-style-breeze libreoffice-writer
-echo "Office and Productivity tools installed."
+echo "LibreOffice installed."
 
-echo "------ Media Player ------"
-sudo apt install -y vlc 
-echo "VLC Media Player installed."
-
-echo "------ Web Browsers ------"
-sudo apt install -y firefox-esr
-echo "Firefox Web Browser installed."
+echo "------ Firefox & VLC ------"
+sudo apt install -y firefox-esr vlc
+echo "Firefox and VLC installed."
 
 # System Hardening
 echo "###################### System Hardening ######################"
@@ -81,38 +77,54 @@ echo "------ Installing Google Cloud CLI ------"
 export CLOUD_SDK_REPO="cloud-sdk-$(lsb_release -c -s)"
 echo "deb [signed-by=/usr/share/keyrings/cloud.google.gpg] http://packages.cloud.google.com/apt $CLOUD_SDK_REPO main" | sudo tee -a /etc/apt/sources.list.d/google-cloud-sdk.list
 curl https://packages.cloud.google.com/apt/doc/apt-key.gpg | gpg --dearmor | sudo tee /usr/share/keyrings/cloud.google.gpg >/dev/null
-sudo apt-get update && sudo apt-get install -y google-cloud-sdk
+sudo apt update
+sudo apt install -y google-cloud-sdk
 echo "Google Cloud CLI installed."
 
 echo "------ Installing Node JS and Firebase CLI ------"
 curl -sL https://deb.nodesource.com/setup_lts.x | sudo -E bash -
-sudo apt-get install -y nodejs
+sudo apt update
+sudo apt install -y nodejs
 sudo npm install -g firebase-tools
 echo "Firebase CLI installed."
 
 echo "------ Installing Discord ------"
+sudo apt install gconf-service gconf2-common libc++1 libc++1-14 libc++abi1-14 libgconf-2-4 libunwind-14
 wget -O discord.deb "https://discordapp.com/api/download?platform=linux&format=deb"
 sudo dpkg -i discord.deb
-sudo apt-get install -f
+sudo apt update
+sudo apt install -f
 echo "Discord installed."
 
 echo "------ Installing GitHub Desktop ------"
 echo "deb [arch=amd64] https://packagecloud.io/shiftkey/desktop/any/ any main" | sudo tee /etc/apt/sources.list.d/packagecloud-shiftky-desktop.list
 curl -L https://packagecloud.io/shiftkey/desktop/gpgkey | sudo apt-key add -
-sudo apt-get update
-sudo apt-get install github-desktop
+sudo apt update
+sudo apt install github-desktop
 echo "GitHub Desktop installed."
 
 # Configuring GNOME
 echo "###################### Configuring GNOME ######################"
+mkdir -p ~/.local/share/themes/
 
-echo "------ Configuring GNOME ------"
+echo "------ Installing Fluent-icon-theme ------"
 git clone https://github.com/vinceliuice/Fluent-icon-theme
 cd Fluent-icon-theme
 ./install.sh
 cd ..
 rm -rf Fluent-icon-theme
+echo "Fluent icon theme installed."
 
+echo "------ Installing adw-gtk3 ------"
+release_url=$(curl -s "https://api.github.com/repos/lassekongo83/adw-gtk3/releases/latest" | jq -r '.tarball_url')
+mkdir -p ~/.local/share/themes/
+curl -L $release_url --output adw-gtk3.tar.gz
+tar -xz -f adw-gtk3.tar.gz -C ~/.local/share/themes/
+rm adw-gtk3.tar.gz
+echo "adw-gtk3 theme installed."
+
+gsettings set org.gnome.desktop.interface color-scheme 'prefer-dark'
+gsettings set org.gnome.desktop.interface gtk-theme 'adw-gtk3-dark'
 gsettings set org.gnome.desktop.interface icon-theme 'Fluent-dark'
 gsettings set org.gnome.desktop.interface font-name 'Noto Sans Display Regular 11'
 gsettings set org.gnome.desktop.interface document-font-name 'Noto Sans Display Regular 11'
