@@ -18,7 +18,7 @@ sudo apt install -y python3-venv python3-pip git postman
 echo "Programming and Development Tools installed."
 
 echo "------ GNOME Desktop and Extensions ------"
-sudo apt install -y gnome-tweaks gnome-shell-extensions chrome-gnome-shell gnome-shell gnome-terminal nautilus gnome-control-center gedit gnome-calendar gnome-clocks gnome-calculator
+sudo apt install -y gnome-tweaks gnome-shell-extensions chrome-gnome-shell gnome-shell gnome-terminal nautilus gnome-control-center gedit gnome-calendar gnome-clocks gnome-calculator gnome-font-viewer
 echo "GNOME Desktop and Extensions installed."
 
 echo "------ Fonts ------"
