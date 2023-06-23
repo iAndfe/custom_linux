@@ -18,7 +18,7 @@ sudo apt install -y python3-venv python3-pip git postman
 echo "Programming and Development Tools installed."
 
 echo "------ GNOME Desktop and Extensions ------"
-sudo apt install -y gnome-tweaks gnome-shell-extensions chrome-gnome-shell gnome-shell gnome-terminal nautilus gnome-control-center 
+sudo apt install -y gnome-tweaks gnome-shell-extensions chrome-gnome-shell gnome-shell gnome-terminal nautilus gnome-control-center gedit gnome-calendar gnome-clocks gnome-calculator
 echo "GNOME Desktop and Extensions installed."
 
 echo "------ Fonts ------"
@@ -26,7 +26,7 @@ sudo apt install -y fonts-noto fonts-dejavu
 echo "Fonts installed."
 
 echo "------ Office and Productivity ------"
-sudo apt install -y libreoffice-calc libreoffice-gtk3 libreoffice-style-breeze
+sudo apt install -y libreoffice-calc libreoffice-gtk3 libreoffice-style-breeze libreoffice-writer
 echo "Office and Productivity tools installed."
 
 echo "------ Media Player ------"
