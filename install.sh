@@ -71,10 +71,37 @@ echo "Visual Studio Code installed."
 
 echo "------ Installing Google Chrome ------"
 echo "deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main" | sudo tee /etc/apt/sources.list.d/google-chrome.list
-curl https://dl.google.com/linux/linux_signing_key.pub | sudo apt-key add -
+curl https://dl.google.com/linux/linux_signing_key.pub | gpg --dearmor | sudo tee /usr/share/keyrings/google-chrome-keyring.gpg >/dev/null
+echo "deb [arch=amd64 signed-by=/usr/share/keyrings/google-chrome-keyring.gpg] http://dl.google.com/linux/chrome/deb/ stable main" | sudo tee /etc/apt/sources.list.d/google-chrome.list
 sudo apt update
 sudo apt install -y google-chrome-stable
 echo "Google Chrome installed."
+
+echo "------ Installing Google Cloud CLI ------"
+export CLOUD_SDK_REPO="cloud-sdk-$(lsb_release -c -s)"
+echo "deb [signed-by=/usr/share/keyrings/cloud.google.gpg] http://packages.cloud.google.com/apt $CLOUD_SDK_REPO main" | sudo tee -a /etc/apt/sources.list.d/google-cloud-sdk.list
+curl https://packages.cloud.google.com/apt/doc/apt-key.gpg | gpg --dearmor | sudo tee /usr/share/keyrings/cloud.google.gpg >/dev/null
+sudo apt-get update && sudo apt-get install -y google-cloud-sdk
+echo "Google Cloud CLI installed."
+
+echo "------ Installing Firebase CLI ------"
+curl -sL https://deb.nodesource.com/setup_lts.x | sudo -E bash -
+sudo apt-get install -y nodejs
+sudo npm install -g firebase-tools
+echo "Firebase CLI installed."
+
+echo "------ Installing Discord ------"
+wget -O discord.deb "https://discordapp.com/api/download?platform=linux&format=deb"
+sudo dpkg -i discord.deb
+sudo apt-get install -f
+echo "Discord installed."
+
+echo "------ Installing GitHub Desktop ------"
+echo "deb [arch=amd64] https://packagecloud.io/shiftkey/desktop/any/ any main" | sudo tee /etc/apt/sources.list.d/packagecloud-shiftky-desktop.list
+curl -L https://packagecloud.io/shiftkey/desktop/gpgkey | sudo apt-key add -
+sudo apt-get update
+sudo apt-get install github-desktop
+echo "GitHub Desktop installed."
 
 # Configuring GNOME
 echo "###################### Configuring GNOME ######################"
