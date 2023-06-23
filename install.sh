@@ -36,23 +36,24 @@ echo "Firefox and VLC installed."
 # System Hardening
 echo "###################### System Hardening ######################"
 
-echo "------ Installing and Configuring Fail2Ban ------"
-sudo apt install -y fail2ban
-sudo systemctl enable fail2ban
-sudo systemctl start fail2ban
-echo "Fail2Ban installed and configured."
-
-echo "------ Hardening SSH ------"
+echo "------ Hardening and Disabling SSH ------"
 sudo sed -i 's/#PermitRootLogin prohibit-password/PermitRootLogin no/' /etc/ssh/sshd_config
 sudo sed -i 's/#PubkeyAuthentication yes/PubkeyAuthentication yes/' /etc/ssh/sshd_config
-sudo systemctl restart ssh
-echo "SSH hardened."
+sudo systemctl stop ssh
+sudo systemctl disable ssh
+echo "SSH hardened and disabled."
 
 echo "------ Installing and Enabling UFW ------"
 sudo apt install -y ufw
 sudo ufw enable
 sudo ufw allow ssh
 echo "UFW installed, enabled, and configured."
+
+echo "------ Installing and Configuring Fail2Ban ------"
+sudo apt install -y fail2ban
+sudo systemctl enable fail2ban
+sudo systemctl start fail2ban
+echo "Fail2Ban installed and configured."
 
 # Installing Additional Software
 echo "###################### Installing Additional Software ######################"
@@ -123,6 +124,8 @@ tar -xz -f adw-gtk3.tar.gz -C ~/.local/share/themes/
 rm adw-gtk3.tar.gz
 echo "adw-gtk3 theme installed."
 
+echo "------ Configuring GNOME ------"
+gsettings set org.gnome.desktop.wm.preferences button-layout 'appmenu:minimize,maximize,close'
 gsettings set org.gnome.desktop.interface color-scheme 'prefer-dark'
 gsettings set org.gnome.desktop.interface gtk-theme 'adw-gtk3-dark'
 gsettings set org.gnome.desktop.interface icon-theme 'Fluent-dark'
@@ -134,5 +137,12 @@ gsettings set org.gnome.settings-daemon.plugins.color night-light-schedule-autom
 gsettings set org.gnome.settings-daemon.plugins.color night-light-schedule-from 20.0
 gsettings set org.gnome.settings-daemon.plugins.color night-light-schedule-to 6.0
 echo "GNOME configuration complete."
+
+echo "------ Configuring GNOME Terminal ------"
+sudo apt-get install -y dconf-cli
+dconf write /org/gnome/terminal/legacy/profiles:/default/use-theme-colors false
+dconf write /org/gnome/terminal/legacy/profiles:/default/background-color "'rgb(0,0,0)'"
+dconf write /org/gnome/terminal/legacy/profiles:/default/foreground-color "'rgb(255,255,255)'"
+echo "GNOME Terminal configuration complete."
 
 echo "###################### Installation Complete ######################"
