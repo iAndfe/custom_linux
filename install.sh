@@ -10,7 +10,7 @@ echo "System update complete."
 echo "###################### Installing Packages ######################"
 
 echo "------ System Utilities and Tools ------"
-sudo apt install -y gparted neofetch cmatrix htop screen mc ssh gdebi curl nano gnome-system-monitor file-roller evince build-essential
+sudo apt install -y gparted neofetch cmatrix htop screen mc ssh gdebi curl nano gnome-system-monitor file-roller evince build-essential seahorse gnome-disk-utility eog gnome-archives-manager
 echo "System Utilities and Tools installed."
 
 echo "------ Programming and Development Tools ------"
