@@ -10,11 +10,11 @@ echo "System update complete."
 echo "###################### Installing Packages ######################"
 
 echo "------ System Utilities and Tools ------"
-sudo apt install -y gparted neofetch cmatrix htop screen mc ssh gdebi curl nano gnome-system-monitor file-roller evince build-essential seahorse gnome-disk-utility eog gnome-archives-manager
+sudo apt install -y gparted neofetch cmatrix htop screen mc ssh gdebi curl nano gnome-system-monitor file-roller evince build-essential seahorse gnome-disk-utility eog
 echo "System Utilities and Tools installed."
 
 echo "------ Programming and Development Tools ------"
-sudo apt install -y python3-venv python3-pip git postman
+sudo apt install -y python3-venv python3-pip git
 echo "Programming and Development Tools installed."
 
 echo "------ GNOME Desktop and Extensions ------"
