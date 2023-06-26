@@ -116,18 +116,10 @@ cd ..
 rm -rf Fluent-icon-theme
 echo "Fluent icon theme installed."
 
-echo "------ Installing adw-gtk3 ------"
-release_url=$(curl -s "https://api.github.com/repos/lassekongo83/adw-gtk3/releases/latest" | jq -r '.tarball_url')
-mkdir -p ~/.local/share/themes/
-curl -L $release_url --output adw-gtk3.tar.gz
-tar -xz -f adw-gtk3.tar.gz -C ~/.local/share/themes/
-rm adw-gtk3.tar.gz
-echo "adw-gtk3 theme installed."
-
 echo "------ Configuring GNOME ------"
 gsettings set org.gnome.desktop.wm.preferences button-layout 'appmenu:minimize,maximize,close'
 gsettings set org.gnome.desktop.interface color-scheme 'prefer-dark'
-gsettings set org.gnome.desktop.interface gtk-theme 'adw-gtk3-dark'
+#gsettings set org.gnome.desktop.interface gtk-theme 'adw-gtk3-dark'
 gsettings set org.gnome.desktop.interface icon-theme 'Fluent-dark'
 gsettings set org.gnome.desktop.interface font-name 'Noto Sans Display Regular 11'
 gsettings set org.gnome.desktop.interface document-font-name 'Noto Sans Display Regular 11'
@@ -137,12 +129,5 @@ gsettings set org.gnome.settings-daemon.plugins.color night-light-schedule-autom
 gsettings set org.gnome.settings-daemon.plugins.color night-light-schedule-from 20.0
 gsettings set org.gnome.settings-daemon.plugins.color night-light-schedule-to 6.0
 echo "GNOME configuration complete."
-
-echo "------ Configuring GNOME Terminal ------"
-sudo apt-get install -y dconf-cli
-dconf write /org/gnome/terminal/legacy/profiles:/default/use-theme-colors false
-dconf write /org/gnome/terminal/legacy/profiles:/default/background-color "'rgb(0,0,0)'"
-dconf write /org/gnome/terminal/legacy/profiles:/default/foreground-color "'rgb(255,255,255)'"
-echo "GNOME Terminal configuration complete."
 
 echo "###################### Installation Complete ######################"
