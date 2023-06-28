@@ -55,6 +55,16 @@ sudo systemctl enable fail2ban
 sudo systemctl start fail2ban
 echo "Fail2Ban installed and configured."
 
+# Installing Flathub
+echo "###################### Installing Flathub ######################"
+
+sudo apt update
+sudo apt install -y flatpak
+sudo apt install -y gnome-software-plugin-flatpak
+sudo flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
+echo 'export XDG_DATA_DIRS="/var/lib/flatpak/exports/share:/home/${USER}/.local/share/flatpak/exports/share:${XDG_DATA_DIRS:-/usr/local/share:/usr/share}"' >> ~/.bashrc
+source ~/.bashrc
+
 # Installing Additional Software
 echo "###################### Installing Additional Software ######################"
 
