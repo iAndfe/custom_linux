@@ -29,9 +29,9 @@ echo "------ LibreOffice ------"
 sudo apt install -y libreoffice-calc libreoffice-gtk3 libreoffice-style-breeze libreoffice-writer
 echo "LibreOffice installed."
 
-echo "------ Firefox & VLC ------"
-sudo apt install -y firefox-esr vlc
-echo "Firefox and VLC installed."
+echo "------ VLC ------"
+sudo apt install -y vlc
+echo "VLC installed."
 
 # System Hardening
 echo "###################### System Hardening ######################"
@@ -98,14 +98,6 @@ sudo apt update
 sudo apt install -y nodejs
 sudo npm install -g firebase-tools
 echo "Firebase CLI installed."
-
-echo "------ Installing Discord ------"
-sudo apt install gconf-service gconf2-common libc++1 libc++1-14 libc++abi1-14 libgconf-2-4 libunwind-14
-wget -O discord.deb "https://discordapp.com/api/download?platform=linux&format=deb"
-sudo dpkg -i discord.deb
-sudo apt update
-sudo apt install -f
-echo "Discord installed."
 
 echo "------ Installing GitHub Desktop ------"
 echo "deb [arch=amd64] https://packagecloud.io/shiftkey/desktop/any/ any main" | sudo tee /etc/apt/sources.list.d/packagecloud-shiftky-desktop.list
